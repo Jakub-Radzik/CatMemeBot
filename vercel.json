@@ -9,10 +9,6 @@
     {
       "path": "/api/daily-post",
       "schedule": "0 5 * * *"
-    },
-    {
-      "path": "/api/daily-post",
-      "schedule": "* * * * *"
     }
   ]
 }
