@@ -12,7 +12,7 @@ export async function generateImage(
 
   ctx.drawImage(image, 0, 0);
 
-  ctx.font = "bold 65px Arial";
+  ctx.font = "bold 65px sans-serif";
   ctx.textAlign = "center";
 
   const drawTextWithBackground = (
