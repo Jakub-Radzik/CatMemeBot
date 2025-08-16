@@ -1,13 +1,11 @@
 import { createCanvas, loadImage } from "canvas";
-import fs from "fs";
-import path from "path";
 
 export async function generateImage(
   imagePath: string,
   topText: string,
   bottomText: string,
   bottomText2: string
-): Promise<string> {
+): Promise<Buffer> {
   const image = await loadImage(imagePath);
   const canvas = createCanvas(image.width, image.height);
   const ctx = canvas.getContext("2d");
@@ -15,7 +13,6 @@ export async function generateImage(
   ctx.drawImage(image, 0, 0);
 
   ctx.font = "bold 65px Arial";
-  ctx.fillStyle = "white";
   ctx.textAlign = "center";
 
   const drawTextWithBackground = (
@@ -28,6 +25,7 @@ export async function generateImage(
     const textHeight = 70; // Approx height of font
     const padding = 10;
 
+    // Black background box
     ctx.fillStyle = "black";
     ctx.fillRect(
       x - metrics.width / 2 - padding,
@@ -36,6 +34,7 @@ export async function generateImage(
       textHeight + padding * 2
     );
 
+    // White text
     ctx.fillStyle = "white";
     ctx.fillText(text, x, y + textHeight / 2 - padding);
   };
@@ -62,8 +61,6 @@ export async function generateImage(
     image.height - 105
   );
 
-  const outPath = path.join(__dirname, "../images/output.png");
-  fs.writeFileSync(outPath, canvas.toBuffer("image/png"));
-
-  return outPath;
+  // Return image buffer instead of saving to disk
+  return canvas.toBuffer("image/png");
 }
