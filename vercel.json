@@ -8,7 +8,7 @@
   "crons": [
     {
       "path": "/api/daily-post",
-      "schedule": "0 10 * * *"
+      "schedule": "0 5 * * *"
     }
   ]
 }
