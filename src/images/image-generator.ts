@@ -1,4 +1,7 @@
-import { createCanvas, loadImage } from "canvas";
+import { createCanvas, loadImage, registerFont } from "canvas";
+import path from "path";
+
+registerFont(path.join(__dirname, "../fonts/Arial.ttf"), { family: "Arial" });
 
 export async function generateImage(
   imagePath: string,
@@ -12,7 +15,7 @@ export async function generateImage(
 
   ctx.drawImage(image, 0, 0);
 
-  ctx.font = "bold 65px sans-serif";
+  ctx.font = "bold 65px Arial";
   ctx.textAlign = "center";
 
   const drawTextWithBackground = (
