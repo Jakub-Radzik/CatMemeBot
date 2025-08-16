@@ -6,7 +6,7 @@ const [today, tomorrow] = getTodayAndTomorrow();
 
 async function main() {
   const imagePath = await generateImage(
-    "./cat.png",
+    "./src/cat.png",
     `Damn it's ${today} already?`,
     "What's next?",
     `A ${tomorrow}? Fuck everything!`
