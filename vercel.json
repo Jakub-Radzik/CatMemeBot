@@ -8,8 +8,7 @@
   "crons": [
     {
       "path": "/api/daily-post",
-      "schedule": "0 7 * * *",
-      "timezone": "Europe/Warsaw"
+      "schedule": "0 7 * * *"
     }
   ]
 }
