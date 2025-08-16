@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "ts-node index.ts",
-    "schedule": "ts-node src/scheduler/index.ts"
+    "start": "ts-node index.ts"
   },
   "author": "",
   "license": "ISC",
