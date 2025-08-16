@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.ts",
-      "use": "@vercel/node"
-    }
-  ],
   "functions": {
-    "api/**/*.ts": {
+    "api/daily-post.ts": {
       "includeFiles": "src/fonts/**/*"
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/daily-post",
+      "schedule": "0 7 * * *",
+      "timezone": "Europe/Warsaw"
+    }
+  ]
 }
