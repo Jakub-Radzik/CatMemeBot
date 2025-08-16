@@ -1,7 +1,7 @@
 import { createCanvas, loadImage, registerFont } from "canvas";
 import path from "path";
 
-registerFont(path.join(__dirname, "../fonts/Arial.ttf"), { family: "Arial" });
+registerFont(path.join(__dirname, "../fonts/Arial.TTF"), { family: "Arial" });
 
 export async function generateImage(
   imagePath: string,
