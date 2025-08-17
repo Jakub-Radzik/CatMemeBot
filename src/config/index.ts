@@ -6,4 +6,6 @@ export default {
   BOT_TOKEN: process.env.BOT_TOKEN,
   CHANNEL_ID: process.env.CHANNEL_ID,
   CRON_SECRET: process.env.CRON_SECRET,
+  DISCORD_TOKEN: process.env.DISCORD_TOKEN,
+  DISCORD_CHANNEL_ID: process.env.DISCORD_CHANNEL_ID,
 };

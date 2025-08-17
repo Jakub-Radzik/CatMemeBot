@@ -3,6 +3,7 @@ import fs from "fs";
 import { sendImageToChannel } from "./bot/telegram/bot";
 import { generateImage } from "./images/image-generator";
 import { getTodayAndTomorrow, isSunday, isWednesday } from "./utils/date";
+import { sendImageOnce } from "./bot/discord/bot";
 
 export async function main() {
   const [today, tomorrow] = getTodayAndTomorrow();
@@ -15,12 +16,14 @@ export async function main() {
   );
 
   await sendImageToChannel(buffer);
+  await sendImageOnce(buffer);
 
   if (isWednesday()) {
     const wednesdayImage = fs.readFileSync(
       path.join(__dirname, "./images/wednesday.jpg")
     );
     await sendImageToChannel(wednesdayImage);
+    await sendImageOnce(wednesdayImage);
   }
 }
 
@@ -30,5 +33,6 @@ export async function sunday() {
       path.join(__dirname, "./images/sunday.jpg")
     );
     await sendImageToChannel(sundayImage);
+    await sendImageOnce(sundayImage);
   }
 }
