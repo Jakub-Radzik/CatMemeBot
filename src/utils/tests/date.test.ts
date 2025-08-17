@@ -1,4 +1,4 @@
-import { getTodayAndTomorrow } from "../date";
+import { getTodayAndTomorrow, isSunday, isWednesday } from "../date";
 
 const mockDate = (isoDate: string) => {
   jest.useFakeTimers().setSystemTime(new Date(isoDate));
@@ -40,5 +40,29 @@ describe("getTodayAndTomorrow with Month Day format", () => {
     [today, tomorrow] = getTodayAndTomorrow();
     expect(today).toBe("January 11th");
     expect(tomorrow).toBe("January 12th");
+  });
+});
+
+describe("isWednesday", () => {
+  it("zwraca true dla środy", () => {
+    const wednesday = new Date("2025-08-13");
+    expect(isWednesday(wednesday)).toBe(true);
+  });
+
+  it("zwraca false dla innych dni", () => {
+    const monday = new Date("2025-08-18"); // Poniedziałek
+    expect(isWednesday(monday)).toBe(false);
+  });
+});
+
+describe("isSunday", () => {
+  it("zwraca true dla niedzieli", () => {
+    const sunday = new Date("2025-08-17"); // Niedziela
+    expect(isSunday(sunday)).toBe(true);
+  });
+
+  it("zwraca false dla innych dni", () => {
+    const friday = new Date("2025-08-15"); // Piątek
+    expect(isSunday(friday)).toBe(false);
   });
 });

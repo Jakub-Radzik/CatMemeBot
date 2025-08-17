@@ -32,3 +32,11 @@ export function getTodayAndTomorrow(): [string, string] {
 
   return [formatDate(today), formatDate(tomorrow)];
 }
+
+export function isWednesday(date: Date = new Date()): boolean {
+  return date.getDay() === 3;
+}
+
+export function isSunday(date: Date = new Date()): boolean {
+  return date.getDay() === 0;
+}
