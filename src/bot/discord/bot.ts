@@ -14,7 +14,6 @@ export async function sendImageOnce(imageBuffer: Buffer, caption?: string) {
 
   try {
     await client.login(DISCORD_TOKEN);
-
     const channel = (await client.channels.fetch(CHANNEL_ID)) as TextChannel;
     if (!channel) throw new Error("❌ Channel not found");
 
