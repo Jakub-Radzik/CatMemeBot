@@ -18,7 +18,9 @@ export async function main() {
 
   // TO BE REMOVED
   if (isWednesday() || true) {
-    const wednesdayImage = fs.readFileSync("./images/wednesday.jpg");
+    const wednesdayImage = fs.readFileSync(
+      path.join(__dirname, "./images/wednesday.jpg")
+    );
     await sendImageToChannel(wednesdayImage);
   }
 }
