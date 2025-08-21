@@ -23,7 +23,7 @@ export async function main() {
   await sendImageToChannel(buffer);
   await sendImageOnce(buffer);
 
-  if (isFriday() || true) {
+  if (isFriday()) {
     const fridayVideo = fs.readFileSync(
       path.join(__dirname, "./images/friday_sailer.mp4")
     );
