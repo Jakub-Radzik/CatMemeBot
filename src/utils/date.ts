@@ -40,3 +40,7 @@ export function isWednesday(date: Date = new Date()): boolean {
 export function isSunday(date: Date = new Date()): boolean {
   return date.getDay() === 0;
 }
+
+export function isFriday(date: Date = new Date()): boolean {
+  return date.getDay() === 5;
+}

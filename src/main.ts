@@ -2,7 +2,12 @@ import path from "path";
 import fs from "fs";
 import { sendImageToChannel } from "./bot/telegram/bot";
 import { generateImage } from "./images/image-generator";
-import { getTodayAndTomorrow, isSunday, isWednesday } from "./utils/date";
+import {
+  getTodayAndTomorrow,
+  isFriday,
+  isSunday,
+  isWednesday,
+} from "./utils/date";
 import { sendImageOnce } from "./bot/discord/bot";
 
 export async function main() {
@@ -17,6 +22,14 @@ export async function main() {
 
   await sendImageToChannel(buffer);
   await sendImageOnce(buffer);
+
+  if (isFriday()) {
+    const fridayVideo = fs.readFileSync(
+      path.join(__dirname, "./images/friday_sailer.mp4")
+    );
+    await sendImageToChannel(fridayVideo);
+    await sendImageOnce(fridayVideo);
+  }
 
   if (isWednesday()) {
     const wednesdayImage = fs.readFileSync(
