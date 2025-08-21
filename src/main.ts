@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { sendImageToChannel } from "./bot/telegram/bot";
+import { sendImageToChannel, sendVideoToChannel } from "./bot/telegram/bot";
 import { generateImage } from "./images/image-generator";
 import {
   getTodayAndTomorrow,
@@ -8,7 +8,7 @@ import {
   isSunday,
   isWednesday,
 } from "./utils/date";
-import { sendImageOnce } from "./bot/discord/bot";
+import { sendImageOnce, sendVideoOnce } from "./bot/discord/bot";
 
 export async function main() {
   const [today, tomorrow] = getTodayAndTomorrow();
@@ -27,8 +27,8 @@ export async function main() {
     const fridayVideo = fs.readFileSync(
       path.join(__dirname, "./images/friday_sailer.mp4")
     );
-    await sendImageToChannel(fridayVideo);
-    await sendImageOnce(fridayVideo);
+    await sendVideoToChannel(fridayVideo);
+    await sendVideoOnce(fridayVideo);
   }
 
   if (isWednesday()) {

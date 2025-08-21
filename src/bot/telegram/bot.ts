@@ -25,3 +25,19 @@ export async function sendImageToChannel(
     console.error("Failed to send image:", err);
   }
 }
+
+export async function sendVideoToChannel(
+  videoBuffer: Buffer,
+  caption?: string
+) {
+  if (!CHANNEL_ID) {
+    throw new Error("Lack of credentials - channel id");
+  }
+
+  try {
+    await bot.sendVideo(CHANNEL_ID, videoBuffer, { caption });
+    console.log("Video sent successfully!");
+  } catch (err) {
+    console.error("Failed to send video:", err);
+  }
+}
