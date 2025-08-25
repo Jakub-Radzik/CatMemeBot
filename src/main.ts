@@ -5,6 +5,7 @@ import { generateImage } from "./images/image-generator";
 import {
   getTodayAndTomorrow,
   isFriday,
+  isMonday,
   isSunday,
   isWednesday,
 } from "./utils/date";
@@ -37,6 +38,14 @@ export async function main() {
     );
     await sendImageToChannel(wednesdayImage);
     await sendImageOnce(wednesdayImage);
+  }
+
+  if (isMonday()) {
+    const mondayVideo = fs.readFileSync(
+      path.join(__dirname, "./images/monday_sailer.mp4")
+    );
+    await sendVideoToChannel(mondayVideo);
+    await sendVideoOnce(mondayVideo);
   }
 }
 

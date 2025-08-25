@@ -44,3 +44,7 @@ export function isSunday(date: Date = new Date()): boolean {
 export function isFriday(date: Date = new Date()): boolean {
   return date.getDay() === 5;
 }
+
+export function isMonday(date: Date = new Date()): boolean {
+  return date.getDay() === 1;
+}
